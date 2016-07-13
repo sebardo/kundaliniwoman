@@ -1,0 +1,218 @@
+{% extends core['extended_layout'] ? core['extended_layout'] : 'CoreBundle:Base:base.layout.html.twig' %}
+
+{% block body_class %}{{parent()}} blog {% endblock %}
+
+{% block header_style %}style="padding: 10em 0 3em 0;"{% endblock %}
+
+{% block wrappers %}
+    <div id="menu-blog">
+        <div class="container">
+            <div class="row" style="margin: 0">
+                <div class="col-md-12 subcategory-container">
+                    {% set count = 10%}
+
+                    {% for cat in get_blog_categories() %}
+                        {% if loop.index < count %}
+                            {% if cat.subcategories | length > 0 %}
+                                <div class="btn-group {% if category is defined and category.slug ==  cat.slug%}active{% endif %}" style="width: auto!important;">
+                                    <a  href="{{ path('blog_blog_category', {'category': cat.slug }) }}" class="item dropdown-toggle {% if category is defined and category.slug ==  cat.slug%}current{% endif %}" data-toggle="dropdown" aria-expanded="false">
+                                        {{ cat.name }}({{ cat.posts | length }})
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        {% for sub in cat.subCategories %}
+                                        <li>
+                                            <a href="{{ path('blog_blog_category', {'category': sub.slug }) }}">
+                                                {{ sub.name }}({{ sub.posts | length }})
+                                            </a>
+                                        </li>
+                                        {% endfor %}  
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <a class="{% if category is defined and category.slug ==  cat.slug%}current{% endif %}" href="{{ path('blog_blog_category', {'category': cat.slug }) }}">
+                                    {{ cat.name }}({{ cat.posts | length }})
+                                </a>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}  
+
+                    <div class="btn-group more-blog-categories">
+                        <a  href="javascript:;" class="item dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span style="margin-top: 0px;" class="login-label ion-chevron-down"></span>
+                        </a>
+                         <ul class="dropdown-menu dropdown-menu-right" role="menu" style="margin-top: 0;padding-top: 0px;">
+                            {% for cat in get_blog_categories() %}
+                                {% if loop.index > 10 %}
+                                    <li >
+                                        <a href="{{ path('blog_blog_category', {'category': cat.slug }) }}">
+                                           {{ cat.name }}({{ cat.posts | length }})
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}  
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}  
+
+{% block content %}
+    <div id="content" class="8u 12u(mobile)">
+         <script> position = 0; </script> 
+        {% for post in posts %}
+        <script> position = position + 1; </script> 
+            {% if post.images|length > 0 %}
+                {% set path = '/uploads/images/post/' ~ post.id ~ '/' ~ post.images.first.path %}
+            {% else %}
+                {# https://placeholdit.imgix.net/~text?txtsize=22&bg=efefef&txtclr=aaaaaa&w=751&h=300&txt=La%20publicaci%C3%B3n%20no%20posee%20imagenhttps://placeholdit.imgix.net/~text?txtsize=22&bg=efefef&txtclr=aaaaaa&w=751&h=300&txt=La%20publicaci%C3%B3n%20no%20posee%20imagen #}
+                {% set path = '' %}
+            {% endif %}
+            <article class="box post" data-position="{{loop.index}}">
+                <header>
+                    <h2><a href="{{path("blog_blog_show", {slug: post.slug})}}">{{ post.title }}</a></h2>
+                    <span class="date">{{ post.published | date ('d')}}.{{ post.published | date ('m') | trans }}.{{ post.published | date ('y')}}</span>
+                </header>
+                {% if path != ''%}<a href="#" class="image featured"><img src="{{ path }}" alt=""></a>{% endif %}
+                <p>{{ post.description | striptags | truncate(500, true, '...')  }}</p>
+                <ul class="actions">
+                    <li><a href="#" class="button icon fa-file">Continue Reading</a></li>
+                </ul>
+            </article>
+        {% endfor %}
+        {% if total_items is defined and posts|length >  1 %}
+            <div class="row post-list">
+                <div class="col-md-12 col-sm-12 col-xs-12 more-post">
+                    <div class="loading" style="display: none;">Cargando...<br></div>
+                    <div class="view-more" >
+                        <button style="background-color: transparent" id="load-more"><a >VER MÁS POST</a></button>
+                    </div>
+                </div> 
+            </div>
+        {% endif %}
+    </div>
+    <div id="sidebar" class="4u 12u(mobile) post-sidebar">       
+        <section>
+            <ul class="divided">
+                <li>
+                    {{ blog_search() | raw }}
+                </li>
+                <li>
+                    {{ blog_tags() | raw }}
+                </li>
+                <li>
+                    {{ blog_feed() | raw }}
+                </li>
+                <li>
+                    {{ blog_social() | raw }}
+                </li>
+                <li>
+                    <div class="history">
+                        <h5>ARCHIVOS</h5>
+                        {{ blog_history() | raw}}
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+{% endblock %}
+
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+            'bundles/blog/less/blog.less'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+                            
+    <script type="text/javascript">
+        {% if total_items is defined %}
+            
+         $(".blog-menu a.item").click(function (event) {   
+            console.log($(this).attr('href')); 
+            window.location.href = $(this).attr('href');
+         });
+            
+        $("#load-more").click(function (event) {
+            event.preventDefault();
+            var position = parseInt($("#post-list>div:last-child").attr('data-position'));
+            var total_items = parseInt({{ total_items }});
+
+            console.log(position, total_items);
+            $('.loading').show();
+
+            $.ajax({
+                method: "POST",
+                url: "{{path('blog_blog_index')}}",
+                data: {
+                    offset: position,
+                    limit: 1
+                }
+
+            }).done(function (data) {
+                $('#post-list').append(data);
+                $('.loading').hide();
+                $('html, body').scrollTop($(document).height());
+                $("#load-more a").blur();
+                //check if there are more news, if not, hide ver mas noticias
+                var position = parseInt($("#post-list>div:last-child").attr('data-position'));
+                if (total_items === position) {
+                    $(".view-more").hide();
+                }
+            }).fail(function () {
+                $('.loading').hide();
+                alert('Problem!');
+            });
+        });
+        {% endif %}
+        $('.list > li a').click(function () {
+            $(this).parent().find('ul').eq(0).slideToggle('slow');
+
+            if ($('#' + $(this).attr('id') + " span.active").css('display') == 'inline-block') {
+                $('#' + $(this).attr('id') + " span.active").css('display', 'none');
+                $('#' + $(this).attr('id') + " span.pasive").css('display', 'inline-block');
+            } else {
+                $('#' + $(this).attr('id') + " span.pasive").css('display', 'none');
+                $('#' + $(this).attr('id') + " span.active").css('display', 'inline-block');
+            }
+            
+            setTimeout(function(){
+                var sidebarHeight = $('#sidebar').height();
+                var mainHeight = $('#content').height();
+                if(sidebarHeight > mainHeight) {
+                    //console.log(sidebarHeight);
+                    $('#content').height(sidebarHeight-15);
+                }
+            }, 1000);
+            
+        });
+
+        $('.share-content').each(function (index) {
+            var dir = $(this).attr('data');
+            if (dir != '') {
+                //var url = dir.replace("http://", "");
+                var self = $(this);
+                $.ajax({
+                    type: 'GET',
+                    url: "/blog/share-counter?url=" + dir
+                            //data: {'url': url}
+                }).done(function (result) {
+                    //console.log(result);
+                    //console.log(self.find('.tweet-counter>span.share-container-counter').html());
+                    self.find('.tweet-counter span.share-container-counter').text(result.tweet);
+                    self.find('.facebook-counter span.share-container-counter').text(result.facebook);
+                    self.find('.google-counter span.share-container-counter').text(result.google);
+                    self.find('.linked-counter span.share-container-counter').text(result.linkedin);
+                });
+            }
+        });
+    </script>
+{% endblock %}

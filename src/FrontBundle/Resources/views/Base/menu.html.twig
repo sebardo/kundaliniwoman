@@ -1,0 +1,36 @@
+<nav id="nav">
+    <ul>
+        {% set items = get_menu_items() %}
+        
+        <li style="white-space: nowrap;"><a class="icon fa-home" href="/"><span>Inicio</span></a></li>
+        {% for item in items %}
+        <li style="white-space: nowrap;"><a class="icon {{item.icon}}" href="/{{item.slug}}"><span>{{item.name}}</span></a></li>
+        {% endfor %}
+        <li style="white-space: nowrap;"><a class="icon fa-edit" href="/blog"><span>Blog</span></a></li>
+        <li style="white-space: nowrap;"><a class="icon fa-envelope anchorLink" href="#contact"><span>Contacto</span></a></li>
+        
+        {% if app.user %}
+            <li class="opener">
+                <a class="icon fa-user" href="#"></a>
+                <ul class="" >
+                    <li><a href="{{ path('core_actor_profile') }}" style="display: block;">Perfil</a></li>
+                    <li><a href="{{ path('logout') }}" style="display: block;">Cerrar sesión</a></li>
+                    {#<li style="white-space: nowrap;"><a href="#" style="display: block;">Categoría 3</a></li>
+                     <li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap;">
+                        <a href="#" style="display: block;">Phasellus consequat</a>
+                        <ul style="-webkit-user-select: none; display: none; position: absolute;" class="dropotron">
+                            <li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
+                            <li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
+                            <li style="white-space: nowrap;"><a href="#" style="display: block;">Phasellus consequat</a></li>
+                        </ul>
+                    </li>#}
+                </ul>
+            </li>
+        {% else %}
+            <li style="white-space: nowrap;"><a class="icon fa-user" href="/login"></a></li>
+        {% endif %}
+       
+    </ul>
+     
+ 
+</nav>

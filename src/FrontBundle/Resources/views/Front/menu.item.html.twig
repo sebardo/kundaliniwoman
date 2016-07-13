@@ -1,0 +1,19 @@
+{% extends core['extended_layout'] ? core['extended_layout'] : 'CoreBundle:Base:base.layout.html.twig' %}
+
+
+
+{% block wrappers %}
+  
+{% endblock %}
+
+
+{% block content %}
+    <div id="content">
+        <article class="box post">
+            <header>
+                <h2>{{ item.name}}</h2>
+            </header>
+            {{ item.description | raw }}
+        </article>
+    </div>
+{% endblock %}

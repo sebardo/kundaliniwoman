@@ -1,0 +1,109 @@
+{% extends core['extended_layout'] ? core['extended_layout'] : 'CoreBundle:Base:base.layout.html.twig' %}
+
+{% block header_style %}style="padding: 14em 0 7em 0;"{% endblock %}
+
+{% block wrappers %}
+    <div id="features-wrapper">
+        <section id="features" class="container">
+            <div class="row">
+                {% set items = get_menu_items(true) %}
+                {% for item in items %}
+                <div class="4u 12u(mobile)">
+                    <section>
+                        {% if item.image.path is defined %}
+                        <a href="{{ path('front_front_menu', {menuitem:  item.slug} ) }}" class="image featured">
+                            <img src="/uploads/images/menu/{{item.id}}/thumbnail/{{ get_thumb_image(item.image.path, '260')}}" alt="">
+                        </a>
+                        {% endif %}
+                        <header><h3>{{item.name}}</h3></header>
+                         {{ item.shortDescription | raw}}
+                    </section>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+    
+    {% include 'CoreBundle:Slider:carousel.html.twig' %}
+    
+{% endblock %}
+
+
+{% block content %}
+    <div id="content" class="8u 12u(mobile)">
+        {% set posts = get_posts('3', '0') %}
+        {% for post in posts %}
+        <article class="box post">
+            <header><h2><a href="{{path("blog_blog_show", {slug: post.slug})}}">{{post.title}}</a></h2></header>
+            {% if post.images.first.path is defined %}
+            <a href="{{path("blog_blog_show", {slug: post.slug})}}" class="image featured"><img src="{{post.images.first.path}}" alt=""></a>
+            {% endif %}
+            <h3>{{ post.published | date ('F')}} {{ post.published | date ('d')}}</h3>
+            <p>{{ post.description | striptags | truncate(200, true, '...')  }}</p>
+            <ul class="actions">
+                <li><a href="{{path("blog_blog_show", {slug: post.slug})}}" class="button icon fa-file">{{'post.continue' | trans }}</a></li>
+            </ul>
+        </article>
+        {% endfor %}
+    </div>
+    <div id="sidebar" class="4u 12u(mobile)">
+        <section>
+            <ul class="divided">
+                {% set posts = get_posts('5', '3') %}
+                {% for post in posts %}
+                <li>
+                    <article class="box excerpt">
+                        <header>
+                            <span class="date">{{ post.published | date ('F')}} {{ post.published | date ('d')}}</span>
+                            <h3><a href="{{path("blog_blog_show", {slug: post.slug})}}">{{post.title}}</a></h3>
+                        </header>
+                        {% if post.images.first.path is defined %}
+                        <a href="{{path("blog_blog_show", {slug: post.slug})}}" class="image left"><img src="{{ get_thumb_image(post.images.first.path, '150', true)}}" alt=""></a>
+                        {% endif %}
+                        <p>{{ post.description | striptags | truncate(200, true, '...')  }}</p>
+                    </article>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+{% endblock %}
+
+
+
+        
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+            'bundles/admin/plugins/jcarousel/jcarousel.responsive.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+
+            
+{% endblock %}
+
+{% block javascripts %}
+        {{ parent() }}
+        
+        {% javascripts
+            'bundles/admin/plugins/jcarousel/jquery.jcarousel.min.js'
+            'bundles/admin/plugins/jcarousel/jcarousel.responsive.js'
+            
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        
+        <script type="text/javascript">
+            (function($) {
+                $('.jcarousel-control-prev')
+                    .jcarouselControl({
+                        target: '-=5'
+                    });
+                $('.jcarousel-control-next')
+                    .jcarouselControl({
+                        target: '+=5'
+                    });    
+             })(jQuery);
+        </script>
+{% endblock %}

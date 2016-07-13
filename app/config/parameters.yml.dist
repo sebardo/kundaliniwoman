@@ -1,0 +1,49 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_name_test: test_symfony
+    database_user:     root
+    database_password: ~
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    node_path: /usr/bin/nodejs
+    node_modules_path: /usr/local/lib/node_modules
+    core:
+        name: Site name
+        extended_layout: ''
+        extended_layout_admin: 'AdminBundle:Base:layout.html.twig'
+        upload_directory: uploads
+        server_base_url: 'http://sitename.dev'
+        fixtures_test: false
+        admin_email: admin@admin.com
+        company:
+            id: XXX123123
+            name: Company Name
+            address: 'Address str. 12'
+            postal_code: '14199'
+            city: City Name
+            country: Country
+            telephone: '0157 557 58150'
+            email: company@email.com
+            website_url: www.sitename.com
+            instagram: 'sitename'
+    admin:
+        - google_application_name: Analitycs
+        - google_oauth2_client_id: 459960642348-nqhsk0rr1e41gv3kbb519g1nlk6rq78a.apps.googleusercontent.com
+        - google_oauth2_client_secret: KScqc1jDkZHUBaanmMGV8QpB
+        - google_oauth2_redirect_uri: 'http://optisoop2.dev/admin/analitycs'
+        - google_developer_key: AIzaSyCda_bsJ-kEa1M1DJenwKfUfyLVlVKuC6I
+        - google_site_name: Site Name
