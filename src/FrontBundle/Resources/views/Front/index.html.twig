@@ -8,7 +8,9 @@
             <div class="row">
                 {% set items = get_menu_items(true) %}
                 {% for item in items %}
-                <div class="4u 12u(mobile)">
+                {% set col = 4 %}
+                {% set col =  12 // (items | length) %}
+                <div class="{{col}}u 12u(mobile)">
                     <section>
                         {% if item.image.path is defined %}
                         <a href="{{ path('front_front_menu', {menuitem:  item.slug} ) }}" class="image featured">
