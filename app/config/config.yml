@@ -74,7 +74,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
@@ -93,8 +92,7 @@ assetic:
 # OAuth login social networks  
 hwi_oauth:
      #name of the firewall in which this bundle is active, this setting MUST be set
-
-    firewall_names: [secured_area]
+    firewall_name: secured_area
     target_path_parameter: /
     resource_owners:
         twitter:
@@ -119,11 +117,20 @@ hwi_oauth:
             options:
                 display: popup 
 
-# Pdf exportation
-ensepar_html2pdf:
-    orientation: P
-    format: A4
-    lang: en
-    unicode: true
-    encoding: UTF-8
-    margin: [10,15,10,15]
+# If you want add item in admin menu use this example
+# dashboard:
+#    icon_class: 'fa fa-dashboard'
+#    label: 'dashboard'
+#    options:
+#        menuitems: core_menuitem_index
+#        sliders: core_slider_index
+admin:
+    admin_menus:  ~
+    apis:
+        google_analytics:
+            options:
+                application_name: Analitycs integración
+                oauth2_client_id: 43533348693-s4rafifpr1o07gja2kgnfbhf4tjq2g0f.apps.googleusercontent.com
+                oauth2_client_secret: lo04F5hvUi_gPaAxyucY70jy
+                oauth2_redirect_uri: 'http://sasturain.dev/admin/analytics'
+                developer_key: AIzaSyCda_bsJ-kEa1M1DJenwKfUfyLVlVKuC6I

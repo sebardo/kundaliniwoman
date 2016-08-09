@@ -40,10 +40,3 @@ parameters:
             email: company@email.com
             website_url: www.sitename.com
             instagram: 'sitename'
-    admin:
-        - google_application_name: Analitycs
-        - google_oauth2_client_id: 459960642348-nqhsk0rr1e41gv3kbb519g1nlk6rq78a.apps.googleusercontent.com
-        - google_oauth2_client_secret: KScqc1jDkZHUBaanmMGV8QpB
-        - google_oauth2_redirect_uri: 'http://optisoop2.dev/admin/analitycs'
-        - google_developer_key: AIzaSyCda_bsJ-kEa1M1DJenwKfUfyLVlVKuC6I
-        - google_site_name: Site Name

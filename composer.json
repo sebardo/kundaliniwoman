@@ -1,18 +1,8 @@
 {
-    "name": "sebastian/blog",
+    "name": "sebastian/kundaliniwoman",
     "license": "proprietary",
-    "type": "project",
+    "type": "Yoga web site",
     "autoload": {
-        "psr-0": { 
-            "CoreBundle": [
-                "vendor/sebardo/core/"
-            ],
-            "AdminBundle": [
-                "vendor/sebardo/admin/"
-            ],
-            "BlogBundle": [
-                "vendor/sebardo/blog/"
-            ]},
         "psr-4": {
             "": "src/"
         },
@@ -21,6 +11,8 @@
             "app/AppCache.php"
         ]
     },
+    "minimum-stability": "dev", 
+    "prefer-stable": true,
     "require": {
         "php": ">=5.3.9",
         "symfony/symfony": "2.8.*",
@@ -31,17 +23,7 @@
         "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        
-        "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "symfony/assetic-bundle": "^2.8",
-        "twig/extensions": "~1.0",
-        "gedmo/doctrine-extensions":  "dev-master",
-        "google/apiclient": "@beta",
-        "hwi/oauth-bundle": "0.4.*@dev",
-        "ensepar/html2pdf-bundle" : "~2.0",
 
-        "sebardo/core": "dev-master",
-        "sebardo/admin": "dev-master",
         "sebardo/blog": "dev-master"
     },
     "require-dev": {

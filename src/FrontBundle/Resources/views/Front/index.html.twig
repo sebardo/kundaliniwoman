@@ -41,7 +41,7 @@
             <a href="{{path("blog_blog_show", {slug: post.slug})}}" class="image featured"><img src="{{post.images.first.path}}" alt=""></a>
             {% endif %}
             <h3>{{ post.published | date ('F')}} {{ post.published | date ('d')}}</h3>
-            <p>{{ post.description | striptags | truncate(200, true, '...')  }}</p>
+            <p>{{ post.description | striptags | truncate(200, true, '...') |raw }}</p>
             <ul class="actions">
                 <li><a href="{{path("blog_blog_show", {slug: post.slug})}}" class="button icon fa-file">{{'post.continue' | trans }}</a></li>
             </ul>

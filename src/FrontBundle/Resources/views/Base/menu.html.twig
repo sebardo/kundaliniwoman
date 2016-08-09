@@ -4,7 +4,7 @@
         
         <li style="white-space: nowrap;"><a class="icon fa-home" href="/"><span>Inicio</span></a></li>
         {% for item in items %}
-        <li style="white-space: nowrap;"><a class="icon {{item.icon}}" href="/{{item.slug}}"><span>{{item.name}}</span></a></li>
+        <li style="white-space: nowrap;"><a class="icon fa-{{item.icon}}" href="/{{item.slug}}"><span>{{item.name}}</span></a></li>
         {% endfor %}
         <li style="white-space: nowrap;"><a class="icon fa-edit" href="/blog"><span>Blog</span></a></li>
         <li style="white-space: nowrap;"><a class="icon fa-envelope anchorLink" href="#contact"><span>Contacto</span></a></li>
