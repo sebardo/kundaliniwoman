@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Controller\BlogController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+
 class FrontController extends Controller
 {
     /**
@@ -25,19 +26,7 @@ class FrontController extends Controller
     {
         return $this->render('FrontBundle:Blog:index.html.twig');
     }
-    
-//    /**
-//     * @Route("/blog/{category}")
-//     */
-//    public function categoryAction(Request $request, $category)
-//    {
-//        $instance = new BlogController();
-//        $instance->setContainer($this->container);
-//        $returnValues = $instance->categoryAction($request, $category);
-//        
-//        return $this->render('FrontBundle:Blog:category.html.twig', $returnValues);
-//    }
-    
+     
     /**
      * Create contact message.
      *
@@ -67,7 +56,7 @@ class FrontController extends Controller
     /**
      * @Route("/{menuitem}")
      */
-    public function menuAction($menuitem)
+    public function menuAction($menuitem=null)
     {
         $em = $this->getDoctrine()->getManager();
         $menuItem = $em->getRepository('CoreBundle:MenuItem')->findOneBySlug($menuitem);

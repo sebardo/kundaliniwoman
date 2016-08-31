@@ -1,0 +1,48 @@
+<a name="contact" id="contact"></a>
+<div id="footer" class="container"><header><h2>{{ 'footer.title' | trans | raw }}</h2></header>
+    <div class="row">
+        <div class="6u 12u(mobile)">
+            <section>
+                <div class="col-sm-12 col-sm-offset-2" id="returnMessage" style="margin-left:0px">
+
+                </div>
+                <form method="post" action="/contact-web" id="contact-web">
+                    <div class="row 50%">
+                        <div class="6u 12u(mobile)">
+                            <input id="name" name="contact[name]" placeholder="{{ 'name' | trans }}" type="text">
+                        </div>
+                        <div class="6u 12u(mobile)">
+                            <input id="email" name="contact[email]" placeholder="{{ 'email' | trans }}" type="text">
+                        </div>
+                    </div>
+                    <div class="row 50%"><div class="12u"><textarea id="message" name="contact[message]" placeholder="{{ 'contact.body' | trans }}"></textarea></div></div>
+                    <div class="row 50%"><div class="12u"><input type="submit" class="form-button-submit button icon fa-envelope" value="{{ 'contact.send' | trans  }}" /></div></div>
+                </form>
+            </section>
+        </div>
+        <div class="6u 12u(mobile)">
+            <section>
+                <p>{{ 'footer.subtitle' | trans  }}</p>
+                <div class="row">
+                    <div class="6u 12u(mobile)">
+                        <ul class="icons">
+                            <li class="icon fa-home">{{ core.company.address }}<br>  {{ core.company.city }}, {{ core.company.postal_code }}<br>  {{ core.company.country }} </li>
+                            <li class="icon fa-phone"> {{ core.company.telephone }} </li>
+
+                        </ul>
+                    </div>
+                    <div class="6u 12u(mobile)">
+                        <ul class="icons">
+                            <li class="icon fa-envelope"><a href="#">{{ core.company.email }}</a></li>
+                            <li class="icon fa-instagram"><a href="#">instagram.com/{{ core.company.instagram}}</a></li>
+                            {#<li class="icon fa-dribbble"><a href="#">dribbble.com/untitled-tld</a></li>
+                            <li class="icon fa-facebook"><a href="#">facebook.com/untitled-tld</a></li>
+                            <li class="icon fa-twitter"><a href="#">@untitled-tld</a></li>#}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<div id="copyright" class="container"><ul class="links"><li><span class="copyleft">&copy;</span> Copyleft</li></ul></div>

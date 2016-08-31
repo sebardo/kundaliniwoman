@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new A2lix\I18nDoctrineBundle\A2lixI18nDoctrineBundle(),
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
 
             new CoreBundle\CoreBundle(),
             new AdminBundle\AdminBundle(),

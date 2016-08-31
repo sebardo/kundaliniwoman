@@ -19,6 +19,7 @@
                 'bundles/front/css/fonts.css'
                 'bundles/front/css/style.css'
                 'bundles/front/less/front.less'
+                'bundles/admin/plugins/flagstrap/dist/css/flags.css'
             %}
                 <link rel="stylesheet" href="{{ asset_url }}">
             {% endstylesheets %}
@@ -35,6 +36,7 @@
             'bundles/front/js/skel.custom.js'
             'bundles/admin/plugins/bootstrap-3.3.6/js/bootstrap.min.js'
             'bundles/admin/plugins/iCheck/icheck.min.js'
+            'bundles/admin/plugins/flagstrap/dist/js/jquery.flagstrap.min.js'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
@@ -51,15 +53,14 @@
                         {% block header %}
                         <div id="header-wrapper">
                             <div id="header" class="container" {% block header_style %}style="padding: 10em 0 3em 0;"{% endblock %}>
-                                <h1 id="logo"><a href="index.html">Kundalini Woman</a></h1>
-                                <p>für ein Bewusstes leben</p>
-                                <span style="font-size: 14px;font-style: italic;">In der Tradition des Kundalini Yoga nach Yogi Bhajan</span>
+                                <h1 id="logo"><a href="index.html">{{ core.name }}</a></h1>
+                                <p>{{ 'header.title' | trans }}</p>
+                                <span style="font-size: 14px;font-style: italic;">{{ 'header.subtitle' | trans }}</span>
                                 {% include 'FrontBundle:Base:menu.html.twig' %}
                                
                             </div>
                         </div>
                         {% endblock %}
-                        
                         
                         {% block wrappers %}
                         {% endblock %}    
@@ -74,120 +75,11 @@
                             </div>
                         </div>
                         <div id="footer-wrapper">
-                            <a name="contact" id="contact"></a>
-                                <div id="footer" class="container"><header><h2>Preguntas y comentarios <strong>dame un toque:</strong></h2></header>
-                                    <div class="row">
-                                        <div class="6u 12u(mobile)">
-                                            <section>
-                                                <div class="col-sm-12 col-sm-offset-2" id="returnMessage" style="margin-left:0px">
-                                        
-                                                </div>
-                                                <form method="post" action="/contact-web" id="contact-web">
-                                                    <div class="row 50%">
-                                                        <div class="6u 12u(mobile)">
-                                                            <input id="name" name="contact[name]" placeholder="Name" type="text">
-                                                        </div>
-                                                        <div class="6u 12u(mobile)">
-                                                            <input id="email" name="contact[email]" placeholder="Email" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row 50%"><div class="12u"><textarea id="message" name="contact[message]" placeholder="Message"></textarea></div></div>
-                                                    <div class="row 50%"><div class="12u"><input type="submit" class="form-button-submit button icon fa-envelope" value="Enviar el mensaje" /></div></div>
-                                                </form>
-                                            </section>
-                                        </div>
-                                        <div class="6u 12u(mobile)">
-                                            <section>
-                                                <p>Si quieres comunicarte personalmente conmigo hazlo con los siguientes datos</p>
-                                                <div class="row">
-                                                    <div class="6u 12u(mobile)">
-                                                        <ul class="icons">
-                                                            <li class="icon fa-home">{{ core.company.address }}<br>  {{ core.company.city }}, {{ core.company.postal_code }}<br>  {{ core.company.country }} </li>
-                                                            <li class="icon fa-phone"> {{ core.company.telephone }} </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div class="6u 12u(mobile)">
-                                                        <ul class="icons">
-                                                            <li class="icon fa-envelope"><a href="#">{{ core.company.email }}</a></li>
-                                                            <li class="icon fa-instagram"><a href="#">instagram.com/{{ core.company.instagram}}</a></li>
-                                                            {#<li class="icon fa-dribbble"><a href="#">dribbble.com/untitled-tld</a></li>
-                                                            <li class="icon fa-facebook"><a href="#">facebook.com/untitled-tld</a></li>
-                                                            <li class="icon fa-twitter"><a href="#">@untitled-tld</a></li>#}
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>
-                                    </div>
-                                </div>
-                                                        <div id="copyright" class="container"><ul class="links"><li><span class="copyleft">&copy;</span> Copyleft</li></ul></div>
-                            </div>
-                                    
+                           {% include 'FrontBundle:Base:footer.html.twig' %}
+                        </div>
                     </div>
-                    
-                    <ul class="dropotron level-0 left" style="-webkit-user-select: none; position: absolute; z-index: 1000; left: 413.594px; top: 81px; opacity: 1; display: none;">
-                        <li style="white-space: nowrap;"><a href="#" style="display: block;">Lorem ipsum dolor</a></li>
-                        <li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
-                        <li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-                        <li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap;">
-                            <a href="#" style="display: block;">Phasellus consequat</a>
-                            <ul style="-webkit-user-select: none; display: none; position: absolute; z-index: 1001;" class="dropotron level-1">
-                                <li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
-                                <li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-                                <li style="white-space: nowrap;"><a href="#" style="display: block;">Phasellus consequat</a></li>
-                            </ul>
-                        </li>
-                        <li style="white-space: nowrap;"><a href="#" style="display: block;">Veroeros feugiat</a></li>
-                    </ul>
-                    <div id="titleBar">
-                        <a href="#navPanel" class="toggle"></a>
-                    </div>
-                    <div id="navPanel">
-                    <nav>
-                        <a class="link depth-0" href="index.html" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-0"></span>Introduction
-                        </a>
-                        <a class="link depth-0" href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-0"></span>Dropdown
-                        </a>
-                        <a class="link depth-1" href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-1"></span>
-                            Lorem ipsum dolor
-                        </a>
-                        <a class="link depth-1" href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-1"></span>Magna phasellus
-                        </a>
-                        <a class="link depth-1" href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-1"></span>Etiam dolore nisl
-                        </a>
-                        <a class="link depth-1" href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-1"></span>Phasellus consequat
-                        </a>
-                        <a class="link depth-2" href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-2"></span>Magna phasellus
-                        </a>
-                        <a class="link depth-2" href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-2"></span>Etiam dolore nisl
-                        </a>
-                        <a class="link depth-2" href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-2"></span>Phasellus consequat
-                        </a>
-                        <a class="link depth-1" href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-1"></span>Veroeros feugiat
-                        </a>
-                        <a class="link depth-0" href="left-sidebar.html" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-0"></span>Left Sidebar
-                        </a>
-                        <a class="link depth-0" href="right-sidebar.html" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-0"></span>Right Sidebar
-                        </a>
-                        <a class="link depth-0" href="no-sidebar.html" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            <span class="indent-0"></span>No Sidebar
-                        </a>
-                    </nav>
+                    {% include 'FrontBundle:Base:menu.mobile.html.twig' %}
                 </div>
-                
             </div>
         </div>
         
@@ -224,11 +116,8 @@
  
             jQuery(document).ready(function() {
                 jQuery(".anchorLink").anchorAnimate();
-
                 jQuery("#contact-web").submit(function(event){
-
                     event.preventDefault();  
-
                     var action = jQuery(this).attr('action');
                     var name = jQuery('#name').val();
                     var email = jQuery('#email').val();
@@ -244,7 +133,7 @@
                         })
                         .done(function( data ) {
                             console.log(data);
-                            jQuery('#returnMessage').text('Mensaje enviado correctamente.');
+                            jQuery('#returnMessage').text('{{ 'contact.sent'  | trans }}');
                             jQuery('#returnMessage').addClass('alert alert-message alert-success');
                             jQuery('#returnMessage').fadeIn('slow', function(){
                                 window.parent.resizeIframeWeb();
@@ -252,7 +141,7 @@
 
                         });
                     }else{
-                        jQuery('#returnMessage').text('Debe introducir un email válido.');
+                        jQuery('#returnMessage').text('{{ 'contact.email.valid'  | trans }}');
                         jQuery('#returnMessage').addClass('alert alert-message alert-danger');
                         jQuery('#returnMessage').fadeIn('slow', function(){
                             window.parent.resizeIframeWeb();
@@ -260,23 +149,13 @@
                     }
 
                 });
-
+                
             });
             
             //iCheck for checkbox and radio inputs
             $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
               checkboxClass: 'icheckbox_minimal-blue',
               radioClass: 'iradio_minimal-blue'
-            });
-            //Red color scheme for iCheck
-            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-              checkboxClass: 'icheckbox_minimal-red',
-              radioClass: 'iradio_minimal-red'
-            });
-            //Flat red color scheme for iCheck
-            $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-              checkboxClass: 'icheckbox_flat-green',
-              radioClass: 'iradio_flat-green'
             });
 
         </script>
