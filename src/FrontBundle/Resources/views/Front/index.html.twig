@@ -13,7 +13,7 @@
                 <div class="{{col}}u 12u(mobile)">
                     <section>
                         {% if item.image.path is defined %}
-                        <a href="{{ path('front_front_menu', {slug:  item.slug} ) }}" class="image featured">
+                        <a href="{{ path('core_menuitem_menu', {slug:  item.slug} ) }}" class="image featured">
                             <img src="/uploads/images/menu/{{item.id}}/thumbnail/{{ get_thumb_image(item.image.path, '260')}}" alt="">
                         </a>
                         {% endif %}
