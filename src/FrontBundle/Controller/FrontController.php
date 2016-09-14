@@ -54,15 +54,16 @@ class FrontController extends Controller
     }
     
     /**
-     * @Route("/{menuitem}")
+     * @Route("/{slug}")
      */
-    public function menuAction($menuitem=null)
+    public function menuAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
-        $menuItem = $em->getRepository('CoreBundle:MenuItem')->findOneBySlug($menuitem);
+        $entity =  $em->getRepository('CoreBundle:MenuItem')->getTranslateMenuItemBySlug($slug, $this->getRequest()->getLocale());
+            
            
         return $this->render('FrontBundle:Front:menu.item.html.twig', array(
-            'item' => $menuItem
+            'item' => $entity
             ));
     }
     

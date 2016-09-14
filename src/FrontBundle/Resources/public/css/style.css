@@ -428,7 +428,7 @@ body {-webkit-text-size-adjust: none;}*, *:before, *:after {-moz-box-sizing: bor
                 line-height: 1.65em;
                 text-align: center;
                 box-shadow: 0.125em 0.175em 0 0 rgba(0, 0, 0, 0.125);
-                margin-right: 0.5em;
+                margin-right: 0.2em;
                 -moz-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
                 -webkit-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
                 -o-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
@@ -464,7 +464,7 @@ body {-webkit-text-size-adjust: none;}*, *:before, *:after {-moz-box-sizing: bor
                 table.default thead {font-size: 0.85em;letter-spacing: 2px;}
                 input[type="button"],input[type="submit"],input[type="reset"],button,.button {
                     font-size: 0.85em;
-                    letter-spacing: 2px;
+                    letter-spacing: 0.7px;
                     padding: 0.85em 2.75em 0.85em 2.75em;
                 }
             ul.actions > li {display: inline-block;margin-left: 1em;}
@@ -472,7 +472,7 @@ body {-webkit-text-size-adjust: none;}*, *:before, *:after {-moz-box-sizing: bor
             ul.divided > li {margin: 2.5em 0 0 0;padding: 2.5em 0 0 0;}
             .no-sidebar .box .post > header {text-align: center;}.box.excerpt .date {
                 display: inline-block;
-                font-size: 0.85em;letter-spacing: 2px;
+                font-size: 0.85em;letter-spacing: 0.5px;
                 padding: 0.25em 1em 0.25em 1em;margin: 0 0 2.5em 0;
             }
             #features-wrapper {padding: 6em 0 6em 0;}
@@ -483,7 +483,7 @@ body {-webkit-text-size-adjust: none;}*, *:before, *:after {-moz-box-sizing: bor
             #header h1 {font-size: 3em;letter-spacing: 13px;}
             #header p {margin: 2.5em 0 0 0;font-size: 0.85em;letter-spacing: 3px;}
             #nav {position: absolute;top: 3em;left: 0;width: 100%;}
-            #nav > ul > li {display: inline-block;padding-right: 1em;}
+            #nav > ul > li {display: inline-block;padding-right: 0.5em;}
             #nav > ul > li:last-child {padding-right: 0;}
             #nav > ul > li > a {display: block;}
             #nav > ul > li > a > span {font-size: 0.85em;letter-spacing: 1px;}
@@ -544,7 +544,7 @@ body {-webkit-text-size-adjust: none;}*, *:before, *:after {-moz-box-sizing: bor
             }
             #navPanel .link {display: block;color: #ddd;text-decoration: none;height: 44px;line-height: 44px;border: 0;border-top: solid 1px #3c3c3c;padding: 0 1em 0 1em;}
             #navPanel .link:first-child {border-top: 0;}
-            #navPanel .link.depth-0 {font-weight: 600;color: #fff;}#navPanel .indent-1 {display: inline-block;width: 1em;}
+            #navPanel .link.depth-0 {font-weight: 600;color: #fff;letter-spacing: 0.1em;}#navPanel .indent-1 {display: inline-block;width: 1em;}
             #navPanel .indent-2 {display: inline-block;width: 2em;}
             #navPanel .indent-3 {display: inline-block;width: 3em;}#navPanel .indent-4 {display: inline-block;width: 4em;}#navPanel .indent-5 {display: inline-block;width: 5em;}#navPanel .depth-0 {color: #fff;}
             body.navPanel-visible #page-wrapper {-moz-transform: translateX(275px);-webkit-transform: translateX(275px);-ms-transform: translateX(275px);transform: translateX(275px);}
