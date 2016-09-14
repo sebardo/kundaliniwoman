@@ -4,7 +4,7 @@
         
         <li style="white-space: nowrap;"><a class="icon fa-home" href="/"><span>{{ 'home' | trans  }}</span></a></li>
         {% for item in items %}
-            <li style="white-space: nowrap;"><a class="icon fa-{{item.icon}}" href="/{{item.slug}}"><span>{{item.name}}</span></a></li>
+            <li style="white-space: nowrap;"><a class="icon fa-{{item.icon}}" href="{{ path('core_menuitem_menu', {slug:  item.slug} ) }}"><span>{{item.name}}</span></a></li>
             {% if item.subitems | length > 0 %}<ul class="" >{% endif %}
             {% for sub in item.subitems %}
                     <li><a href="/{{sub.slug}}" style="display: block;">{{item.name}}</a></li>
