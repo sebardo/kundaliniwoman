@@ -54,7 +54,7 @@ class FrontController extends Controller
     }
     
     /**
-     * @Route("/{slug}")
+     * @Route("/menu/{slug}")
      */
     public function menuAction($slug)
     {
