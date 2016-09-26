@@ -483,7 +483,7 @@ body {-webkit-text-size-adjust: none;}*, *:before, *:after {-moz-box-sizing: bor
             #header h1 {font-size: 3em;letter-spacing: 13px;}
             #header p {margin: 2.5em 0 0 0;font-size: 0.85em;letter-spacing: 3px;}
             #nav {position: absolute;top: 3em;left: 0;width: 100%;}
-            #nav > ul > li {display: inline-block;padding-right: 2em;}
+            #nav > ul > li {display: inline-block;padding-right: 1em;}
             #nav > ul > li:last-child {padding-right: 0;}
             #nav > ul > li > a {display: block;}
             #nav > ul > li > a > span {font-size: 0.85em;letter-spacing: 3px;}
