@@ -9,7 +9,9 @@
             {% else %}
             <li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;"><a href="{{ path('core_menuitem_menu', {slug:  item.slug} ) }}" class="icon fa-bar-chart-o"><span>{{item.name}}</span></a>
                 <ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
-                    <li style="white-space: nowrap;"><a href="{{ path('core_menuitem_menu', {slug:  item.slug} ) }}" style="display: block;">{{item.name}}</a></li>
+                    {% for sub in item.subitems %}
+                        <li style="white-space: nowrap;"><a href="{{ path('core_menuitem_menu', {slug:  sub.slug} ) }}" style="display: block;">{{sub.name}}</a></li>
+                    {% endfor %}
                 </ul>
             </li>
             {% endif %}
