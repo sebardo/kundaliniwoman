@@ -269,7 +269,7 @@ body {-webkit-text-size-adjust: none;}*, *:before, *:after {-moz-box-sizing: bor
             }
             a:hover {color: #FF5A19;border-bottom-color: rgba(255, 255, 255, 0);}
             a:hover strong {color: #FF5A19;}
-            strong, b {font-weight: 600;color: #666;}
+            strong, b {font-weight: 600}
             em, i {font-style: italic;}
             sub {position: relative;top: 0.5em;font-size: 0.8em;}
             sup {position: relative;top: -0.5em;font-size: 0.8em;}
