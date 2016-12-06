@@ -1,5 +1,19 @@
+.btn-core, .btn-core:focus, .btn-core:hover{
+    color: #fff;
+    background-color: #FF5A19;
+}
+.modal-content{
+    padding: 40px;
+    display: inline-block
+}
+.modal-popup a.close-link {
+    font-size: 22px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    border-bottom: 0;
+}
 /* You can change the height of the carousel by changing the height in the class below. It is set to 50% by default, but can be any height! */
-
 .carousel {
     z-index: 0;
     height: 450px;
@@ -233,8 +247,6 @@
     .account, .edit_account, .edit_pass{
         margin-top: 40px;
         a, a:hover{
-            color: #555;
-            display: block;
             border-bottom: 0px;
         }
     }
@@ -358,5 +370,57 @@ input[type="text"],input[type="password"],input[type="email"],select{
 .container-language{
     right: 0;
     position: absolute;
-    top: -40px;
+    top: -50px;
+    a{
+        cursor: pointer;
+        border-bottom: 0;
+    }
+}
+
+.center{
+    text-align: center; 
+}
+/*Login*/
+form[name="login"]{
+    .added{
+        div{
+            padding-left: 0;
+        }
+        .pull-left{
+            text-align: left;
+        }
+    }
+}
+form[name="registration"]{
+    .checkboxes{
+        text-align: left;
+    }
+}
+.access, .profile-menu{
+    margin-right: 20px;
+    color:#ED786A;
+    float: left;
+    font-size: 16px;
+    line-height: 35px;
+    >div.btn-group{
+        float: left;
+        margin-left: 0;
+    }
+    >div>button{
+        padding: 0px 20px;
+        font-size: 14px;
+    }
+}
+.container-login, .container-recovery{
+    padding: 0;
+    h2{
+        text-align: center; 
+    }
+    .added > div{
+        padding-left: 0;
+    }
+}
+
+.container-profile .tabs-content .tab-content form label {
+    padding: 5px 15px!important;
 }

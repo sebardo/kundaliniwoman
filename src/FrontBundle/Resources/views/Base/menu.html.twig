@@ -19,17 +19,65 @@
         
         <li style="white-space: nowrap;"><a class="icon fa-edit" href="/blog"><span>{{ 'blog.singular' | trans  }}</span></a></li>
         
-        {% if app.user %}
-            <li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;"><a class="icon fa-user" href="#"></a>
+        {% if app.user %}    
+            <li class="opener" style="top:-47px;position: absolute;right: 125px;-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
+                <a href="#" class="icon fa-user">
+                    <span>{{app.user.name}}</span>
+                </a>
                 <ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
-                    <li><a href="{{ path('core_actor_profile') }}" style="display: block;">Perfil</a></li>
-                    <li><a href="{{ path('logout') }}" style="display: block;">Cerrar sesión</a></li>
+                    <li style="white-space: nowrap;"><a href="{{ path('core_actor_profile') }}" style="display: block;">Perfil</a></li>
+                    <li style="white-space: nowrap;"><a href="{{ path('logout') }}" style="display: block;">Cerrar sesión</a></li>
                 </ul>
             </li>
-        {% else %}
-            <li style="white-space: nowrap;"><a class="icon fa-user" href="/login"></a></li>
         {% endif %}
-        <li class="container-language">{{ get_languages() }}</li>
+            
+        <li class="container-language">
+            
+            {% if not app.user %}
+                <div class="access">
+                    <a data-toggle="modal" data-target="#modalLogin">{{ 'login.short' | trans }}</a> {{ 'or' | trans }} 
+                    <a data-toggle="modal" data-target="#modalRegister" >{{ 'signup.first' | trans }}</a>
+                </div>
+            {% endif %}
+        
+            
+            {{ get_languages() }}
+        </li>
         
     </ul>
 </nav>
+            
+            {# POPUP #}
+        <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modal-popup">
+                    <a href="#" class="close-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                    <h3 class="white">Registrate</h3>
+                    {{ register_form({
+                        form_class: 'popup-form',
+                        input_email_class: 'form-white',
+                        input_password_class: 'form-white',
+                        icheck_class: 'minimal-white',
+                        button_submit_class: 'btn-submit'
+                    }) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modal-popup">
+                    <a href="#" class="close-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                    <h3 class="white">{{ 'login.account' | trans }}</h3>
+
+                    {{ login_form({
+                        form_class: 'popup-form',
+                        input_email_class: 'form-white',
+                        input_password_class: 'form-white',
+                        icheck_class: 'minimal-white',
+                        button_submit_class: 'btn-submit'
+                    }) }}
+                    
+                </div>
+            </div>
+        </div>

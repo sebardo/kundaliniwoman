@@ -74,3 +74,16 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Dancing Script';
+    src:url('/bundles/front/fonts/DancingScript-Regular.ttf');
+    font-weight: normal;
+    font-style: cursive;
+}
+@font-face {
+    font-family: 'Dancing Script';
+    src:url('/bundles/front/fonts/DancingScript-Bold.ttf');
+    font-weight: bold;
+    font-style: cursive;
+}
