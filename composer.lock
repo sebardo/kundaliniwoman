@@ -2227,12 +2227,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebardo/admin.git",
-                "reference": "228b35d2a4b7c4668c48ce575a86780569aba081"
+                "reference": "9fbd0656c359d41b59ed25f229564c15a5316f05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebardo/admin/zipball/228b35d2a4b7c4668c48ce575a86780569aba081",
-                "reference": "228b35d2a4b7c4668c48ce575a86780569aba081",
+                "url": "https://api.github.com/repos/sebardo/admin/zipball/9fbd0656c359d41b59ed25f229564c15a5316f05",
+                "reference": "9fbd0656c359d41b59ed25f229564c15a5316f05",
                 "shasum": ""
             },
             "require": {
@@ -2262,7 +2262,7 @@
             "keywords": [
                 "admin"
             ],
-            "time": "2016-12-08 13:29:33"
+            "time": "2016-12-08 15:25:25"
         },
         {
             "name": "sebardo/blog",
@@ -2314,12 +2314,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebardo/core.git",
-                "reference": "694564197f579363b0bee73aa200186c408729e5"
+                "reference": "db4272595d776cde30b5be83cd28b837b04bb531"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebardo/core/zipball/694564197f579363b0bee73aa200186c408729e5",
-                "reference": "694564197f579363b0bee73aa200186c408729e5",
+                "url": "https://api.github.com/repos/sebardo/core/zipball/db4272595d776cde30b5be83cd28b837b04bb531",
+                "reference": "db4272595d776cde30b5be83cd28b837b04bb531",
                 "shasum": ""
             },
             "require": {
@@ -2356,7 +2356,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-12-07 16:38:57"
+            "time": "2016-12-08 15:17:01"
         },
         {
             "name": "sensio/distribution-bundle",
