@@ -47,37 +47,47 @@
     </ul>
 </nav>
             
-            {# POPUP #}
-        <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content modal-popup">
-                    <a href="#" class="close-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
-                    <h3 class="white">Registrate</h3>
-                    {{ register_form({
-                        form_class: 'popup-form',
-                        input_email_class: 'form-white',
-                        input_password_class: 'form-white',
-                        icheck_class: 'minimal-white',
-                        button_submit_class: 'btn-submit'
-                    }) }}
-                </div>
-            </div>
+{# POPUP #}
+<div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-popup">
+            <a href="#" class="close-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+            <h3 class="white">Registrate</h3>
+            {{ register_form({
+                form_class: 'popup-form',
+                input_email_class: 'form-white',
+                input_password_class: 'form-white',
+                icheck_class: 'minimal-white',
+                button_submit_class: 'btn-submit'
+            }) }}
         </div>
+    </div>
+</div>
 
-        <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content modal-popup">
-                    <a href="#" class="close-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
-                    <h3 class="white">{{ 'login.account' | trans }}</h3>
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-popup">
+            <a href="#" class="close-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
+            <h3 class="white">{{ 'login.account' | trans }}</h3>
+            
+            {% block hwi_oauth_content %}
+                {% for owner in hwi_oauth_resource_owners() %}
+                    <div class="social-login-button col-md-3">
+                        <a class="btn btn-default oauth-button oauth-button-{{owner}} {{app.request.locale}}" href="{{ hwi_oauth_login_url(owner) }}" >
+                            <span class="ion-social-{{owner}}"></span>
+                            <span class="oauth-label">con {{ owner | trans({}, 'HWIOAuthBundle') |capitalize }}</span>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endblock hwi_oauth_content %}
 
-                    {{ login_form({
-                        form_class: 'popup-form',
-                        input_email_class: 'form-white',
-                        input_password_class: 'form-white',
-                        icheck_class: 'minimal-white',
-                        button_submit_class: 'btn-submit'
-                    }) }}
-                    
-                </div>
-            </div>
+            {{ login_form({
+                form_class: 'popup-form',
+                input_email_class: 'form-white',
+                input_password_class: 'form-white',
+                icheck_class: 'minimal-white',
+                button_submit_class: 'btn-submit'
+            }) }}
         </div>
+    </div>
+</div>

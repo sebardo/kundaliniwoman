@@ -91,26 +91,26 @@ assetic:
     node: "%node_path%"
     filters:
         cssrewrite:
-            apply_to: "\.css$"
+            apply_to: ".css$"
         less:
             node: "%node_path%"
             node_paths: ["%node_modules_path%"]
-            apply_to: "\.less$"
+            apply_to: ".less$"
 
 # OAuth login social networks  
 hwi_oauth:
      #name of the firewall in which this bundle is active, this setting MUST be set
-    firewall_name: secured_area
+    firewall_names: [secured_area]
     target_path_parameter: /
     resource_owners:
         twitter:
             type:                twitter
-            client_id:           lV0OGkdpom7fu0umpyOYl69v4
-            client_secret:       i0JA4XNVvqGLED88X031208nJzydR07ek3zNOPjqWtiaoEyTsU
+            client_id:           WVdAUmB1txAvLPw8Y5l0ImLp1
+            client_secret:       DyaY1TkbFh1b643irHCs0pbMo009CWrwuD34LQvEqkvTZHfdAi
         google:
             type:                google
-            client_id:           295710704391-kuvgr89k3empant281ilbk0aescnhiee.apps.googleusercontent.com
-            client_secret:       Vvo_sIbWW7mdi-vLh6tpLkMa
+            client_id:           43533348693-5cc8rtt9u836lenact1l4dtprenq0m0j.apps.googleusercontent.com
+            client_secret:       xLP8Qcvqn3rBEMy5btOrSxfv
             scope:               "email profile"
             options:
                 access_type:     offline
@@ -124,6 +124,11 @@ hwi_oauth:
             scope:               "email"
             options:
                 display: popup 
+        instagram:
+            type:                instagram
+            client_id:           dbd834deb2eb4a6e8bccd3d56c37c9cb
+            client_secret:       f38e792e45ad4f7ebdf3be71572c18e8
+            scope:               basic
 
 a2lix_i18n_doctrine:
     manager_registry: doctrine       # [1]
