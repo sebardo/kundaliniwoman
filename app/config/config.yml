@@ -109,8 +109,8 @@ hwi_oauth:
             client_secret:       7KJoY105ka0TvHGmmy1bFPNoAnDlTOWcRpUV1pCnZurf3z8N3B
         google:
             type:                google
-            client_id:           922040783377-compute@developer.gserviceaccount.com
-            client_secret:       df6468d22dd8905e96419ad842388daec0cd0148
+            client_id:           922040783377-rbn2lvna5qpogv95pm4aa1vc9010lr4l.apps.googleusercontent.com
+            client_secret:       bDLGMfYprPcJnozGu4kFQwlt
             scope:               "email profile"
             options:
                 access_type:     offline
