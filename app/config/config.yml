@@ -119,8 +119,8 @@ hwi_oauth:
                 login_hint:      sub
         facebook:
             type:                facebook
-            client_id:           502605306534870
-            client_secret:       8e85bc722eff0f6485ebf08abad30f5b
+            client_id:           1521991217899046
+            client_secret:       2cca8eb109a4a37ebac22231683af257
             scope:               "email"
             options:
                 display: popup 
