@@ -1,6 +1,6 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: "@CoreBundle/Resources/config/security.yml" }
+    - { resource: "@CoreBundle/Resources/config/security_oauth.yml" }
     - { resource: "@CoreBundle/Resources/config/services.yml" }
     - { resource: "@AdminBundle/Resources/config/services.yml" }
     - { resource: "@BlogBundle/Resources/config/services.yml" }
