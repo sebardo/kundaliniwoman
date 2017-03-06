@@ -22,11 +22,11 @@ parameters:
     node_path: /usr/bin/nodejs
     node_modules_path: /usr/local/lib/node_modules
     core:
-        name: Site name
-        extended_layout: ''
+        name: 'Kundalini Woman'
+        extended_layout: 'FrontBundle:Base:layout.html.twig'
         extended_layout_admin: 'AdminBundle:Base:layout.html.twig'
         upload_directory: uploads
-        server_base_url: 'http://sitename.dev'
+        server_base_url: 'http://kwoman.dev'
         fixtures_test: false
         admin_email: admin@admin.com
         company:
