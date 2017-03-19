@@ -139,6 +139,14 @@ a2lix_translation_form:
     required_locales: [es, en, de]         # [1-c]
     manager_registry: doctrine     # [2]
     templating: "CoreBundle:Base:default.tabs.html.twig"      # [3]
+    
+# Translation Configuration
+asm_translation_loader:
+    driver: orm
+    history: true # default false
+    database:
+        entity_manager: default    
+    
 # If you want add item in admin menu use this example
 # dashboard:
 #    icon_class: 'fa fa-dashboard'
@@ -157,3 +165,9 @@ admin:
                 oauth2_redirect_uri: 'http://sasturain.dev/admin/analytics'
                 developer_key: AIzaSyCda_bsJ-kEa1M1DJenwKfUfyLVlVKuC6I
             
+dcs_dynamic_discriminator_map:
+    mapping:
+        baseactor:
+            entity: CoreBundle\Entity\BaseActor
+            map:
+                Actor: CoreBundle\Entity\Actor
