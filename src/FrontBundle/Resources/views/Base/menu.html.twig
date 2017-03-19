@@ -69,8 +69,8 @@
         <div class="modal-content modal-popup">
             <a href="#" class="close-link"><span class="glyphicon glyphicon-remove-sign"></span></a>
             <h3 class="white">{{ 'login.account' | trans }}</h3>
-            
-            {% block hwi_oauth_content %}
+
+            {% if twig_global.checkUse('HWIOAuthBundle')%}
                 {% for owner in hwi_oauth_resource_owners() %}
                     {% if owner != 'test_connect'%}
                     <div class="social-login-button col-md-3">
@@ -81,7 +81,9 @@
                     </div>
                     {% endif %}
                 {% endfor %}
-            {% endblock hwi_oauth_content %}
+            {% endif %}
+
+           
 
             {{ login_form({
                 form_class: 'popup-form',

@@ -1,6 +1,6 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: "@CoreBundle/Resources/config/security_oauth.yml" }
+    - { resource: "security.yml" }
     - { resource: "@CoreBundle/Resources/config/services.yml" }
     - { resource: "@AdminBundle/Resources/config/services.yml" }
     - { resource: "@BlogBundle/Resources/config/services.yml" }
@@ -38,6 +38,7 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         core: %core%
+        twig_global: "@twig.global"  
 
 # Doctrine Configuration
 doctrine:

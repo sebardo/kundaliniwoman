@@ -1,24 +1,69 @@
-# To get started with security, check out the documentation:
-# http://symfony.com/doc/current/book/security.html
 security:
+    encoders:
+        CoreBundle\Entity\BaseActor:
+            algorithm: sha512
 
-    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    role_hierarchy:
+        ROLE_ADMIN:       [ROLE_COMPANY, ROLE_USER]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_COMPANY, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
     providers:
-        in_memory:
-            memory: ~
+        main:
+            entity: { class: CoreBundle:BaseActor }
+            #custom_hwi_provider: { id: oauth.user_provider }
 
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
+        login_firewall:
+            pattern:    ^/login$
+            anonymous:  ~
         dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
+        secured_area:
             anonymous: ~
-            # activate different ways to authenticate
+            context: test_connect
+            oauth:
+                resource_owners:
+                    twitter:           "/login/check-twitter"
+                    google:           "/login/check-google"
+                    facebook:         "/login/check-facebook"
+                    instagram:        "/login/check-instagram"
+                login_path:        /login
+                use_forward:       false
+                failure_path:      /login
 
-            # http_basic: ~
-            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+                oauth_user_provider:
+                    service: oauth.user_provider
+            pattern:    ^/
+            form_login:
+                login_path:  /login
+                check_path:  /login_check
+                use_referer: true
+                success_handler: authentication_handler
+                failure_handler: authentication_handler
+            logout:
+                path:   /logout
+                target: /
+#                success_handler: authentication_handler
+            anonymous: true
+            remember_me:
+                secret:      "%secret%"
+                lifetime: 31536000 # 365 days in seconds
+                path:     /
+                domain:   ~ # Defaults to the current domain from $_SERVER
 
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+        - { path: ^/admin/actor, roles: [ROLE_ADMIN] }
+        - { path: ^/admin/subscription, roles: [ROLE_ADMIN] }
+        - { path: ^/admin/newsletter, roles: [ROLE_ADMIN] }
+        - { path: ^/admin/shipping, roles: [ROLE_ADMIN] }
+        - { path: ^/admin/sliders, roles: [ROLE_ADMIN] }
+        - { path: ^/admin/dashboard, roles: [ROLE_ADMIN] }
+        - { path: ^/admin/analitycs, roles: [ROLE_ADMIN] }
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: [ROLE_ADMIN, ROLE_COMPANY, ROLE_USER] }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
