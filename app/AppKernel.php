@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new DCS\DynamicDiscriminatorMapBundle\DCSDynamicDiscriminatorMapBundle(),
 
             new CoreBundle\CoreBundle(),
+            new CoreExtraBundle\CoreExtraBundle(),
             new AdminBundle\AdminBundle(),
             new BlogBundle\BlogBundle(),
             new FrontBundle\FrontBundle(),

@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: "security.yml" }
     - { resource: "@CoreBundle/Resources/config/services.yml" }
+    - { resource: "@CoreExtraBundle/Resources/config/services.yml" }
     - { resource: "@AdminBundle/Resources/config/services.yml" }
     - { resource: "@BlogBundle/Resources/config/services.yml" }
 
@@ -88,7 +89,7 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: '%kernel.debug%'
     bundles:
-        [ CoreBundle, AdminBundle, BlogBundle, FrontBundle ]
+        [ CoreBundle, CoreExtraBundle, AdminBundle, BlogBundle, FrontBundle ]
     node: "%node_path%"
     filters:
         cssrewrite:
@@ -157,6 +158,7 @@ asm_translation_loader:
 #        sliders: core_slider_index
 admin:
     admin_menus:  ~
+    company_menus: ~
     apis:
         google_analytics:
             options:
