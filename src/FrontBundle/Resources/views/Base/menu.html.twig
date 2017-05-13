@@ -17,7 +17,7 @@
             {% endif %}
         {% endfor %}
         
-        <li style="white-space: nowrap;"><a class="icon fa-edit" href="/blog"><span>{{ 'blog.singular' | trans  }}</span></a></li>
+        <li style="white-space: nowrap;"><a class="icon fa-edit" href="{{ path('blog_blog_index') }}"><span>{{ 'blog.singular' | trans  }}</span></a></li>
         
         {% if app.user %}    
             <li class="opener" style="top:-47px;position: absolute;right: 125px;-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
