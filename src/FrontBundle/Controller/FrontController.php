@@ -20,7 +20,7 @@ class FrontController extends Controller
     }
     
     /**
-     * @Route("/blog")
+     * @Route("/blog/", name="blog_blog_index")
      */
     public function blogAction()
     {

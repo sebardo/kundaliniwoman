@@ -160,6 +160,12 @@ asm_translation_loader:
 #    options:
 #        menuitems: core_menuitem_index
 #        sliders: core_slider_index
+core:    
+    extended_layout: 'FrontBundle:Base:layout.html.twig'
+    extended_layout_admin: 'AdminBundle:Base:layout.html.twig'
+    server_base_url: 'http://kwoman.dev'
+    fixtures_dev: false
+    admin_email: sebastian.sasturain@gmail.com
 admin:
     admin_menus:  ~
     company_menus: ~

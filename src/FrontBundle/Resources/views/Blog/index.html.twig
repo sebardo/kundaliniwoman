@@ -1,11 +1,11 @@
-{% extends core['extended_layout'] ? core['extended_layout'] : 'CoreBundle:Base:base.layout.html.twig' %}
+{% extends 'BlogBundle:Blog:index.html.twig' %}
 
 {% block body_class %}{{parent()}} blog {% endblock %}
 
 {% block header_style %}style="padding: 11em 0 3em 0;background-position: 58% 100%;"{% endblock %}
 
-{% block wrappers %}
-    <div id="menu-blog">
+{% block content_header %}
+    {#<div id="menu-blog">
         <div class="container">
             <div class="row" style="margin: 0">
                 <div class="col-md-12 subcategory-container">
@@ -56,55 +56,7 @@
 
             </div>
         </div>
-    </div>
-{% endblock %}  
-
-{% block content %}
-    <div id="content" class="8u 12u(mobile)">
-        {% for post in get_posts() %}
-            {% if post.images|length > 0 %}
-                {% set path = post.images.first.path %}
-            {% else %}
-                {# https://placeholdit.imgix.net/~text?txtsize=22&bg=efefef&txtclr=aaaaaa&w=751&h=300&txt=La%20publicaci%C3%B3n%20no%20posee%20imagenhttps://placeholdit.imgix.net/~text?txtsize=22&bg=efefef&txtclr=aaaaaa&w=751&h=300&txt=La%20publicaci%C3%B3n%20no%20posee%20imagen #}
-                {% set path = '' %}
-            {% endif %}
-            <article class="box post">
-                <header>
-                    <h2><a href="{{path("blog_blog_show", {slug: post.slug})}}">{{ post.title }}</a></h2>
-                    <span class="date">{{ post.published | date ('d')}}.{{ post.published | date ('m') | trans }}.{{ post.published | date ('y')}}</span>
-                </header>
-                {% if path != ''%}<a href="{{path("blog_blog_show", {slug: post.slug})}}" class="image featured"><img src="{{ path }}" alt=""></a>{% endif %}
-                <p>{{ post.description | striptags | truncate(500, true, '...') | raw }}</p>
-                <ul class="actions">
-                    <li><a href="{{path("blog_blog_show", {slug: post.slug})}}" class="button icon fa-file">Continuar leyendo</a></li>
-                </ul>
-            </article>
-        {% endfor %}
-    </div>
-    <div id="sidebar" class="4u 12u(mobile) post-sidebar">       
-        <section>
-            <ul class="divided">
-                <li>
-                    {{ blog_search() | raw }}
-                </li>
-                <li>
-                    {{ blog_tags() | raw }}
-                </li>
-                <li>
-                    {{ blog_feed() | raw }}
-                </li>
-                <li>
-                    {{ blog_social() | raw }}
-                </li>
-                <li>
-                    <div class="history">
-                        <h5>ARCHIVOS</h5>
-                        {{ blog_history() | raw}}
-                    </div>
-                </li>
-            </ul>
-        </section>
-    </div>
+    </div>#}
 {% endblock %}
 
 
