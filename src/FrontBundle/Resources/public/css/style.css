@@ -126,7 +126,6 @@ body {-webkit-text-size-adjust: none;}*, *:before, *:after {-moz-box-sizing: bor
     .row.uniform.\31 50\25 > * {padding: 75px 0 0 75px;}
     .row.uniform.\31 50\25 {margin: -75px 0 -1px -75px;}
     .row.\35 0\25 > * {padding: 25px 0 0 25px;}
-    .row.\35 0\25 {margin: -25px 0 -1px -25px;}
     .row.uniform.\35 0\25 > * {padding: 25px 0 0 25px;}
     .row.uniform.\35 0\25 {margin: -25px 0 -1px -25px;}
     .row.\32 5\25 > * {padding: 12.5px 0 0 12.5px;}
@@ -393,7 +392,25 @@ input[type="button"].alt:active,input[type="submit"].alt:active,input[type="rese
 #features-wrapper p {text-align: center;}
 #features-wrapper .actions {margin-top: 1.25em;}
 #main-wrapper {position: relative;overflow: hidden;background: #fff;}
-#footer-wrapper {position: relative;overflow: hidden;border-top: solid 2px #e5e5e5;background: #f0f0f0;}
+#footer-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-top: solid 2px #e5e5e5;
+    background: #34dfe5;
+    color: #fff;
+}
+#footer-wrapper a, #footer-wrapper a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+#footer header h2 strong {
+    color: #fff;
+}
+#footer  {
+    font-weight: bold;
+    font-size: 20px;
+}
+
 #footer-wrapper form input[type="text"],
 #footer-wrapper form input[type="email"],
 #footer-wrapper form input[type="password"],
@@ -406,7 +423,7 @@ input[type="button"].alt:active,input[type="submit"].alt:active,input[type="rese
 #footer-wrapper h2 {text-align: center;}
 #header {
     position: relative;
-    border-bottom: solid 10px #e5e5e5;
+    border-bottom: solid 10px #ebb0aa;
     background: url("/bundles/front/images/logo-kundalini-woman.png");
     background-size: 400px;
     padding: 11em 0 3em 0;
@@ -415,7 +432,7 @@ input[type="button"].alt:active,input[type="submit"].alt:active,input[type="rese
 }
 #header h1 {font-family: 'Arvo';font-weight: 700;color: #FF5A19;text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);}
 #header h1 a {
-    color: #e55116;
+    color: #666;
     font-family: 'Dancing Script';
     text-transform: capitalize;
     font-size: 80px;
