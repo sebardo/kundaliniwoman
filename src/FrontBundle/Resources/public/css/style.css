@@ -266,8 +266,8 @@ a strong {
     -ms-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
     transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
 }
-a:hover {color: #FF5A19;border-bottom-color: rgba(255, 255, 255, 0);}
-a:hover strong {color: #FF5A19;}
+a:hover {color: #ebb0aa;border-bottom-color: rgba(255, 255, 255, 0);}
+a:hover strong {color: #ebb0aa;}
 strong, b {font-weight: 600}
 em, i {font-style: italic;}
 sub {position: relative;top: 0.5em;font-size: 0.8em;}
@@ -348,7 +348,7 @@ input[type="button"],input[type="submit"],input[type="reset"],button,.button {
     -webkit-appearance: none;
     position: relative;
     display: inline-block;
-    background: #FF5A19;
+    background: #ebb0aa;
     color: #fff;
     border-radius: 4px;border: 0;
     outline: 0;font-size: 1em;
@@ -357,7 +357,7 @@ input[type="button"],input[type="submit"],input[type="reset"],button,.button {
 }
 input[type="button"].icon:before,input[type="submit"].icon:before,input[type="reset"].icon:before,button.icon:before,.button.icon:before {position: relative;padding-right: 0.75em;opacity: 0.5;top: 0.05em;}
 input[type="button"]:hover,input[type="submit"]:hover,input[type="reset"]:hover,button:hover,.button:hover {background: #fd887a;}
-input[type="button"]:active,input[type="submit"]:active,input[type="reset"]:active,button:active,.button:active {background: #FF5A19;}
+input[type="button"]:active,input[type="submit"]:active,input[type="reset"]:active,button:active,.button:active {background: #ebb0aa;}
 input[type="button"].alt,input[type="submit"].alt,input[type="reset"].alt,button.alt,.button.alt {background: #878787;}
 input[type="button"].alt:hover,input[type="submit"].alt:hover,input[type="reset"].alt:hover,button.alt:hover,.button.alt:hover {background: #979797;}
 input[type="button"].alt:active,input[type="submit"].alt:active,input[type="reset"].alt:active,button.alt:active,.button.alt:active {background: #878787;}
@@ -430,7 +430,7 @@ input[type="button"].alt:active,input[type="submit"].alt:active,input[type="rese
     background-position: 54% 97%;
     background-repeat: no-repeat;
 }
-#header h1 {font-family: 'Arvo';font-weight: 700;color: #FF5A19;text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);}
+#header h1 {font-family: 'Arvo';font-weight: 700;color: #ebb0aa;text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);}
 #header h1 a {
     color: #666;
     font-family: 'Dancing Script';
@@ -530,7 +530,7 @@ input[type="button"].alt:active,input[type="submit"].alt:active,input[type="rese
     .dropotron.level-0:before {content: '';display: block;position: absolute;left: 1.25em;top: -0.75em;border-left: solid 0.75em rgba(255, 255, 255, 0);border-right: solid 0.75em rgba(255, 255, 255, 0);border-bottom: solid 0.75em #ccc;}
     .dropotron span, .dropotron a {display: block;padding: 0.3em 1em 0.3em 1em;border: 0;border-top: solid 1px #f0f0f0;outline: 0;}
     .dropotron li:first-child > span, .dropotron li:first-child > a {border-top: 0;padding-top: 0;}
-    .dropotron li:hover > span, .dropotron li:hover > a {-moz-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;-webkit-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;-ms-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;color: #FF5A19;}
+    .dropotron li:hover > span, .dropotron li:hover > a {-moz-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;-webkit-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;-ms-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;color: #ebb0aa;}
     #banner {padding: 10em 0 10em 0;}
     #banner p {font-size: 2em;line-height: 1.5em;letter-spacing: 4px;}
     #banner:before, #banner:after {content: '';display: block;position: absolute;top: 50%;width: 35px;height: 141px;margin-top: -70px;background: url("/bundles/front/images/bracket.svg");opacity: 0.15;}
