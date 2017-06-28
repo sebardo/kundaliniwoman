@@ -1,6 +1,10 @@
 {% extends core['extended_layout'] ? core['extended_layout'] : 'CoreBundle:Base:base.layout.html.twig' %}
 
-
+{# Metas #}
+{% block meta_title %}{{ item.name}}{% endblock %}
+{% block meta_description %}{{ item.description | raw }}{% endblock %}
+{% block meta_title_ogp %}{{ item.name}}{% endblock %}
+{% block meta_description_ogp %}{{ item.description | raw }}{% endblock %}
 
 {% block wrappers %}
   

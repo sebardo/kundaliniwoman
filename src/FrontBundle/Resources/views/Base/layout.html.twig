@@ -6,7 +6,8 @@
         {% block meta_viewport %}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         {% endblock %}
-        <title>Kundalini Woman</title>
+        <title>Kundalini Woman | Para una vida conciente</title>
+        
         <link rel="shortcut icon" href="{{ asset('bundles/front/images/favicon.ico') }}"/>
 
         {% block stylesheets %}
@@ -42,7 +43,20 @@
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
         
-        {% block head %}{% endblock %}
+        {% block head %}
+            <meta charset="utf-8">
+            <meta http-equiv="x-ua-compatible" content="ie=edge">
+            <meta name="description" content="{% block meta_description %}{% endblock %}">
+            <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta property="og:url" content="{{ app.request.uri }}"/>
+            <meta property="og:type" content="website"/>
+            <meta property="og:title" content="{% block meta_title_ogp %}{% endblock %}"/>
+            <meta property="og:description" content="{% block meta_description_ogp %}{% endblock %}"/>
+            <meta property="og:image" content="{% block meta_image %}/upload/image-default-ogp.jpg{% endblock %}"/>
+
+        
+        {% endblock %}
     </head>
 
     {% block body %}
@@ -66,6 +80,7 @@
                     {% block wrappers %}
                     {% endblock %}    
                     {% block content_header %}{% endblock %}
+                    {% block content_container %}
                     <div id="main-wrapper">
                         <div id="main" class="container">
                             <div class="row">
@@ -75,6 +90,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endblock %}
                     <div id="footer-wrapper">
                        {% include 'FrontBundle:Base:footer.html.twig' %}
                     </div>

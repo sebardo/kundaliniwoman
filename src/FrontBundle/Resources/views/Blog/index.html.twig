@@ -1,5 +1,12 @@
 {% extends 'BlogBundle:Blog:index.html.twig' %}
 
+{# Metas #}
+{% block meta_title %}{{'front.blog.meta.title' | trans}}{% endblock %}
+{% block meta_description %}{{'front.blog.meta.description' | trans}}{% endblock %}
+{% block meta_keywords %}{{'front.blog.meta.keywords' | trans}}{% endblock %}
+{% block meta_title_ogp %}{{'front.blog.meta.title' | trans}}{% endblock %}
+{% block meta_description_ogp %}{{'front.blog.meta.description' | trans}}{% endblock %}
+
 {% block body_class %}{{parent()}} blog {% endblock %}
 
 {% block header_style %}style="padding: 11em 0 3em 0;background-position: 58% 100%;"{% endblock %}
