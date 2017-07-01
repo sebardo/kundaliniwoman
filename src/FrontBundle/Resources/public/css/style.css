@@ -240,7 +240,8 @@ body {-webkit-text-size-adjust: none;}*, *:before, *:after {-moz-box-sizing: bor
     .\-2u\28mobile\29 {margin-left: 16.66667%;}
     .\-1u\28mobile\29 {margin-left: 8.33333%;}
 }
-body { background: #f0f0f0;font-family: 'Source Sans Pro';font-weight: 300;color: #777;}
+body { 
+    font-family: 'Source Sans Pro';font-weight: 300;color: #777;}
 body.is-loading * {
     -moz-transition: none !important;
     -webkit-transition: none !important;

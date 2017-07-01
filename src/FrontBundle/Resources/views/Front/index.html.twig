@@ -3,36 +3,40 @@
 {% block header_style %}padding: 14em 0 7em 0;background-position: 54% 62%;{% endblock %}
 
 {% block wrappers %}
-    
-    <div class="gradient" style="height: 20px;"></div>
-    {% include 'CoreExtraBundle:Slider:carousel.html.twig' %}
-    <div class="gradient-bottom" style="height: 20px;"></div>
-    
+
+
+    <div class="container">
+        <div class="gradiente" style="height: 20px;"></div>
+        {% include 'CoreExtraBundle:Slider:carousel.html.twig' %}
+        <div class="gradiente-bottom" style="height: 20px;"></div>
+    </div>
+
+
     <div id="features-wrapper">
         <section id="features" class="container">
             <div class="row">
                 {% set items = get_menu_items(true) %}
                 {% for item in items %}
-                {% set col = 4 %}
-                {% set col =  12 // (items | length) %}
-                <div class="{{col}}u 12u(mobile)">
-                    <section>
-                        {% if item.image.path is defined %}
-                        <a href="{{ path('coreextra_menuitem_menu', {slug:  item.slug} ) }}" class="image featured">
-                            <img src="/uploads/images/menu/{{item.id}}/thumbnail/{{ get_thumb_image(item.image.path, '260')}}" alt="">
-                        </a>
-                        {% endif %}
-                        <header><h3>{{item.name}}</h3></header>
-                         {{ item.shortDescription | raw}}
-                    </section>
-                </div>
+                    {% set col = 4 %}
+                    {% set col =  12 // (items | length) %}
+                    <div class="{{col}}u 12u(mobile)">
+                        <section>
+                            {% if item.image.path is defined %}
+                                <a href="{{ path('coreextra_menuitem_menu', {slug:  item.slug} ) }}" class="image featured">
+                                    <img src="/uploads/images/menu/{{item.id}}/thumbnail/{{ get_thumb_image(item.image.path, '260')}}" alt="">
+                                </a>
+                            {% endif %}
+                            <header><h3>{{item.name}}</h3></header>
+                                    {{ item.shortDescription | raw}}
+                        </section>
+                    </div>
                 {% endfor %}
             </div>
         </section>
     </div>
-    
-    
-    
+
+
+
 {% endblock %}
 
 {% block content_container %}
@@ -77,39 +81,42 @@
 
 
 
-        
+
 {% block stylesheets %}
     {{ parent() }}
     {% stylesheets
-            'bundles/admin/plugins/jcarousel/jcarousel.responsive.css'
+            'bundles/admin/plugins/swiper/css/swiper.min.css'
     %}
-        <link rel="stylesheet" href="{{ asset_url }}">
+    <link rel="stylesheet" href="{{ asset_url }}">
     {% endstylesheets %}
 
-            
+
 {% endblock %}
 
 {% block javascripts %}
-        {{ parent() }}
-        
-        {% javascripts
-            'bundles/admin/plugins/jcarousel/jquery.jcarousel.min.js'
-            'bundles/admin/plugins/jcarousel/jcarousel.responsive.js'
-            
-        %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        
-        <script type="text/javascript">
-            (function($) {
-                $('.jcarousel-control-prev')
-                    .jcarouselControl({
-                        target: '-=5'
-                    });
-                $('.jcarousel-control-next')
-                    .jcarouselControl({
-                        target: '+=5'
-                    });    
-             })(jQuery);
-        </script>
+    {{ parent() }}
+
+    {% javascripts
+        'bundles/admin/plugins/swiper/js/swiper.jquery.min.js'            
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+     <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false,
+        // Disable preloading of all images
+        preloadImages: false,
+        // Enable lazy loading
+        lazyLoading: true,
+    });
+    </script>
 {% endblock %}
