@@ -3,6 +3,11 @@
 {% block header_style %}padding: 14em 0 7em 0;background-position: 54% 62%;{% endblock %}
 
 {% block wrappers %}
+    
+    <div class="gradient" style="height: 20px;"></div>
+    {% include 'CoreExtraBundle:Slider:carousel.html.twig' %}
+    <div class="gradient-bottom" style="height: 20px;"></div>
+    
     <div id="features-wrapper">
         <section id="features" class="container">
             <div class="row">
@@ -26,7 +31,7 @@
         </section>
     </div>
     
-    {% include 'CoreExtraBundle:Slider:carousel.html.twig' %}
+    
     
 {% endblock %}
 

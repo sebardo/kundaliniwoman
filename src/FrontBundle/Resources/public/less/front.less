@@ -14,10 +14,25 @@
 }
 /* You can change the height of the carousel by changing the height in the class below. It is set to 50% by default, but can be any height! */
 .carousel {
+/*    border-top: solid 10px #ebb0aa;
+    border-bottom: solid 10px #ebb0aa;*/
     z-index: 0;
     height: 550px;
 }
-
+.gradient{
+    background: white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(white, #ebb0aa); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, #ebb0aa); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, #ebb0aa); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #ebb0aa); /* Standard syntax */
+}
+.gradient-bottom{
+    background: #ebb0aa; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#ebb0aa, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#ebb0aa, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#ebb0aa, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#ebb0aa, white); /* Standard syntax */
+}
 .item,
 .carousel-inner {
     height: 100%;
@@ -409,7 +424,7 @@ form[name="registration"]{
 }
 .access, .profile-menu{
     margin-right: 20px;
-    color:#ED786A;
+    color:#ebb0aa;
     float: left;
     font-size: 16px;
     line-height: 35px;

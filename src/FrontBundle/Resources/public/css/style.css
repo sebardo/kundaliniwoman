@@ -396,7 +396,8 @@ input[type="button"].alt:active,input[type="submit"].alt:active,input[type="rese
     position: relative;
     overflow: hidden;
     border-top: solid 2px #e5e5e5;
-    background: #34dfe5;
+    /*background: #34dfe5;*/
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
     color: #fff;
 }
 #footer-wrapper a, #footer-wrapper a:hover{
@@ -423,7 +424,6 @@ input[type="button"].alt:active,input[type="submit"].alt:active,input[type="rese
 #footer-wrapper h2 {text-align: center;}
 #header {
     position: relative;
-    border-bottom: solid 10px #ebb0aa;
     background: url("/bundles/front/images/logo-kundalini-woman.png");
     background-size: 400px;
     padding: 11em 0 3em 0;
@@ -471,8 +471,8 @@ input[type="button"].alt:active,input[type="submit"].alt:active,input[type="rese
     -ms-transition: color 0.25s ease-in-out;
     transition: color 0.25s ease-in-out;
 }
-#nav > ul > li.active > a:before, #nav > ul > li:hover > a:before {background: #ED786A;color: #fff;}
-#nav > ul > li.active > a > span, #nav > ul > li:hover > a > span {color: #ED786A;}
+#nav > ul > li.active > a:before, #nav > ul > li:hover > a:before {background: #ebb0aa;color: #fff;}
+#nav > ul > li.active > a > span, #nav > ul > li:hover > a > span {color: #ebb0aa;}
 #banner {position: relative;text-transform: uppercase;}
 #banner p {font-weight: 400;}
 #banner strong {color: inherit;}#content > section,#content > article {
