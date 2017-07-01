@@ -99,7 +99,7 @@ class FrontController extends Controller
         if($request->getMethod() == 'POST'){
             $em = $this->getDoctrine()->getManager();
 
-            $this->get('core.mailer')->sendContactWebMessage($request->request->get('contact'));
+            $this->get('core.mailer')->sendContactMessage($request->request->get('contact'));
             
             return new JsonResponse(true);
         }
