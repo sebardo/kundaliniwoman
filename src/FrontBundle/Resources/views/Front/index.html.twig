@@ -3,14 +3,11 @@
 {% block header_style %}padding: 14em 0 7em 0;background-position: 54% 62%;{% endblock %}
 
 {% block wrappers %}
-
-
     <div class="container">
         <div class="gradiente" style="height: 20px;"></div>
         {% include 'CoreExtraBundle:Slider:swiper.html.twig' %}
         <div class="gradiente-bottom" style="height: 20px;"></div>
     </div>
-
 
     <div id="features-wrapper">
         <section id="features" class="container">
@@ -34,9 +31,6 @@
             </div>
         </section>
     </div>
-
-
-
 {% endblock %}
 
 {% block content_container %}
@@ -80,8 +74,6 @@
 {% endblock %}
 
 
-
-
 {% block stylesheets %}
     {{ parent() }}
     {% stylesheets
@@ -111,7 +103,7 @@
         paginationClickable: true,
         spaceBetween: 30,
         centeredSlides: true,
-        autoplay: 2500,
+        autoplay: 5000,
         autoplayDisableOnInteraction: false,
         // Disable preloading of all images
         preloadImages: false,
