@@ -1,10 +1,7 @@
 core:
     resource: "@CoreBundle/Resources/config/routing_oauth.yml"
     prefix:   /
-coreextra:
-    resource: "@CoreExtraBundle/Controller/"
-    type:     annotation
-    prefix:   / 
+
     
 admin:
     resource: "@AdminBundle/Resources/config/routing.yml"
@@ -21,3 +18,7 @@ blog:
     resource: "@BlogBundle/Resources/config/routing.yml"
     prefix:   /
 
+coreextra:
+    resource: "@CoreExtraBundle/Controller/"
+    type:     annotation
+    prefix:   / 

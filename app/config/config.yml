@@ -142,7 +142,7 @@ a2lix_translation_form:
     locale_provider: default       # [1]
     locales: [es, en, de]      # [1-a]
     default_locale: es             # [1-b]
-    required_locales: [es, en, de]         # [1-c]
+    required_locales: [es]         # [1-c]
     manager_registry: doctrine     # [2]
     templating: "CoreBundle:Base:default.tabs.html.twig"      # [3]
     
@@ -166,6 +166,11 @@ core:
     server_base_url: 'http://kwoman.dev'
     fixtures_dev: false
     admin_email: sebastian.sasturain@gmail.com
+    dynamic_discriminator_map:
+        baseactor:
+            entity: CoreBundle\Entity\BaseActor
+            map:
+                Actor: CoreBundle\Entity\Actor
 admin:
     admin_menus:  ~
     company_menus: ~
@@ -178,9 +183,3 @@ admin:
                 oauth2_redirect_uri: 'http://sasturain.dev/admin/analytics'
                 developer_key: AIzaSyCda_bsJ-kEa1M1DJenwKfUfyLVlVKuC6I
             
-dcs_dynamic_discriminator_map:
-    mapping:
-        baseactor:
-            entity: CoreBundle\Entity\BaseActor
-            map:
-                Actor: CoreBundle\Entity\Actor

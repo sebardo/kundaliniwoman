@@ -18,9 +18,9 @@
                     {% set col =  12 // (items | length) %}
                     <div class="{{col}}u 12u(mobile)">
                         <section>
-                            {% if item.image.path is defined %}
+                            {% if item.image is not null %}
                                 <a href="{{ path('coreextra_menuitem_menu', {slug:  item.slug} ) }}" class="image featured">
-                                    <img src="/uploads/images/menu/{{item.id}}/thumbnail/{{ get_thumb_image(item.image.path, '260')}}" alt="">
+                                    <img src="{{ get_thumb_image(item.image.path, '260')}}" alt="">
                                 </a>
                             {% endif %}
                             <header><h3>{{item.name}}</h3></header>

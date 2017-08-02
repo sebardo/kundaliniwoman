@@ -48,7 +48,7 @@ class FrontController extends Controller
                 
         $categories = $em->getRepository('BlogBundle:Category')->findBy(array('parentCategory' => null ), array('order' => 'ASC'));
         $tags = $em->getRepository('BlogBundle:Tag')->findBy(array(), array('name' => 'ASC'));
-        $comments = $em->getRepository('BlogBundle:Comment')->findBy(array('post' => $entity->getId(), 'isActive' => true));
+        $comments = $em->getRepository('BlogBundle:Comment')->findBy(array('post' => $entity->getId(), 'active' => true));
         
         $related = $this->get('blog_manager')->getRelatedPost($entity);
 
@@ -111,13 +111,13 @@ class FrontController extends Controller
     /**
      * @Route("/menu/{slug}")
      */
-    public function menuAction($slug)
+    public function menuAction(Request $request, $slug)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity =  $em->getRepository('CoreBundle:MenuItem')->getTranslateMenuItemBySlug($slug, $this->getRequest()->getLocale());
+        $entity =  $em->getRepository('CoreExtraBundle:MenuItem')->getTranslateMenuItemBySlug($slug, $request->getLocale());
             
            
-        return $this->render('FrontBundle:Front:menu.item.html.twig', array(
+        return $this->render('CoreExtraBundle:MenuItem:menu.item.html.twig', array(
             'item' => $entity
             ));
     }
