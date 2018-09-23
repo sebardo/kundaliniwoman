@@ -3,10 +3,10 @@
 
 {# Metas #}
 {% block meta_title %}{{ post.title }}{% endblock %}
-{% block meta_description %}{{ post.description }}{% endblock %}
+{% block meta_description %}{{ post.description | striptags}}{% endblock %}
 {% block meta_keywords %}{% for tag in post.tags %}{{ tag.name }}{% if not loop.last %},{% endif %}{% endfor %}{% endblock %}
 {% block meta_title_ogp %}{{ post.title }}{% endblock %}
-{% block meta_description_ogp %}{{ post.description }}{% endblock %}
+{% block meta_description_ogp %}{{ post.description |striptags }}{% endblock %}
 
 {% set path = '' %}
 {% if post.images|length > 0 %}
